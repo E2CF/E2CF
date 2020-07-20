@@ -51,10 +51,6 @@ Metric test(EECuckooFilter *dcf, const Config config, string *data, string *data
 		}
 	}
 	
-	cout<<"findI="<<dcf->getFindcount()<<endl;
-	cout<<"I_time!counterInS="<<dec<<dcf->getcount()<<endl;
-	cout<<"The count of CFs = "<<dcf->getCFcount()<<endl;
-	//dcf->coutDCF();
 
 	//**********query**********
 	int false_positive_count = 0;

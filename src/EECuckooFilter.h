@@ -36,7 +36,7 @@ public:
 	LinkList* cf_list;
 
 	//construction & distruction functions
-	EECuckooFilter(const size_t capacity, const double false_positive, const size_t exp_block_num = 16);
+	EECuckooFilter(const size_t capacity, const double false_positive, const size_t exp_block_num = 4);
 	~EECuckooFilter();
 
 	//insert & query & delete functions
@@ -73,24 +73,18 @@ public:
 	int getcount();
 	int counter_ISc;	
 	void coutDCF();
-	int countCF;//
+	size_t countCF;//
 	int used[128];
 	int CF_Level[128],countinSp[128],level[128];
 	bool split_YON[128];
 	uint32_t countSpB[128];
-
 	int counterInsF;
-	int getcountF();
-	int getCF0count();
-	int getCF1count();
+	int findI;
 	int capacityCF[10];
 	bool insertItemNR(const char* item);
 	bool insertItem(size_t index, uint32_t fingerprint);
 	bool queryItemI(size_t index, uint32_t fingerprint);
-	queue<int> HevLoad_Que;
-	int findI;
-	int getFindcount();
-	int32_t getCFcount();
+	queue<int> HevLoad_Que;	
 	};
 
 

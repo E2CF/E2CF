@@ -18,7 +18,7 @@ EECuckooFilter::EECuckooFilter(const size_t item_num, const double fp, const siz
 	LevelHigh = LevelLow = 0;
 	
 	single_table_length = upperpower2(capacity/4.0/exp_block_num);//2048 1024 512 256 128 ---!!!---must be the power of 2---!!!---  删掉了“/exp_block_num”
-	single_table_length = 8;
+	// single_table_length = 8;
 	//single_table_length = 4194304/16;////in order to
 	single_capacity = single_table_length*0.9*4;//s=6 1920 s=12 960 s=24 480 s=48 240 s=96 120
 
@@ -78,23 +78,20 @@ EECuckooFilter::~EECuckooFilter(){
 }
 
 bool EECuckooFilter::insertItemNR(const char* item){
-	size_t index,nPow_level;
+	size_t index;
 	uint32_t fingerprint;
 	generateIF(item, index, fingerprint, fingerprint_size, single_table_length);
 	if(queryItemI(index,fingerprint)){
 		findI++;
 		return true;
 	}
-	insertItem(index,fingerprint);
+	if(insertItem(index,fingerprint)){
+		return true;
+	}
+	return false;
 }
 
-int EECuckooFilter::getFindcount(){
-	return findI;
-}
 
-int32_t EECuckooFilter::getCFcount(){
-	return countCF;
-}
 ////
 bool EECuckooFilter::insertItem(size_t index, uint32_t fingerprint){
 	size_t  numCF, indexinCF,nPow_levelL,nPow_levelH;
@@ -207,32 +204,7 @@ bool EECuckooFilter::insertItem(size_t index, uint32_t fingerprint){
 	}
 	return true;
 }
-int EECuckooFilter::getcount(){
-	return counter_ISc;
-}
 
-int EECuckooFilter::getCF0count(){
-	return PtoCF[0]->counter;
-}
-int EECuckooFilter::getCF1count(){
-	return PtoCF[1]->counter;
-}
-int EECuckooFilter::getcountF(){
-	return this->counterInsF;
-}
-void EECuckooFilter::coutDCF()
-{
-	for(int i=0; i < 128; i++)
-	{
-		if(used[i] == 0)continue;
-		cout<<"i = "<<i<<endl;
-		for (size_t j = 0; j < single_table_length; j++)
-		{
-			char* p1 = PtoCF[i]->getBucket(j);
-			cout<<hex<<*(uint64_t*)p1<<" "<<endl;;
-		}
-	}
-}
 //
 CuckooFilter* EECuckooFilter::splitCF(CuckooFilter* PtoCFsplit,CuckooFilter* PNewCF,size_t indexinCF, uint32_t fingerprint){
 	uint64_t aBucket,PowLevel,PowLevel_last;
@@ -261,8 +233,7 @@ CuckooFilter* EECuckooFilter::splitCF(CuckooFilter* PtoCFsplit,CuckooFilter* PNe
 		}
 		if(mov_bucket == PowLevel_last){
 			PNewCF->addBNewCF_addItem(LevelLow+1,(indexinCF-1)*PowLevel_last+mov_bucket, fingerprint);
-		}
-			
+		}			
 	}
 	return PNewCF;
 }

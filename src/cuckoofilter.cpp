@@ -265,7 +265,7 @@ uint64_t* CuckooFilter::moveodd_addItem(int versionID,int iBucket, uint64_t* aBu
 }
 
 void CuckooFilter::addBNewCF(size_t verID,size_t ibucket,uint64_t aBucket){
-	int powerL=pow(2,verID-1);
+	//int powerL=pow(2,verID-1);
 	char* p = bucket[ibucket].bit_array;
 	*((uint64_t*)p) &= 0xf0000000000000;
 	*((uint64_t*)p) |= aBucket;
