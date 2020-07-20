@@ -1,8 +1,6 @@
 /*
- * cuckoofilter.cpp
  *
- *  Created on: Nov 14, 2017
- *      Author: liaoliangyi
+ *      Author:
  */
 
 #include "cuckoofilter.h"
