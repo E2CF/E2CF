@@ -3,7 +3,7 @@
 
 ## How to use?
 ### Environment
-We implement E2CF in aRed Hat Enterprise Linux Server release 6.2 with an Intel 2.60GHz CPU and 64GB RAM, the size of a cache line in the server is 64 bytes, and OpenSSL library environment. 
+We implement E2CF in a Red Hat Enterprise Linux Server release 6.2 with an Intel 2.60GHz CPU and 64GB RAM, the size of a cache line in the server is 64 bytes, and OpenSSL library environment. 
 
 Install OpenSSL (Please refer to https://www.openssl.org to learn more).
 
