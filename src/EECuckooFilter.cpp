@@ -2,7 +2,7 @@
  * 
  *
  *  Created on:
- *      Author: yushuiying
+ *      Author: 
  */
 
 #include "EECuckooFilter.h"
