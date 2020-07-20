@@ -1,8 +1,6 @@
 /*
- * bithack.h
  *
- *  Created on: Dec 21, 2016
- *      Author: liaoliangyi
+ *      Author: 
  */
 #ifndef BITHACK_H_
 #define BITHACK_H_
