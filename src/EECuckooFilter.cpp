@@ -17,10 +17,10 @@ EECuckooFilter::EECuckooFilter(const size_t item_num, const double fp, const siz
 	capacity = item_num;
 	LevelHigh = LevelLow = 0;
 	
-	single_table_length = upperpower2(capacity/4.0/exp_block_num);//2048 1024 512 256 128 ---!!!---must be the power of 2---!!!---  
+	single_table_length = upperpower2(capacity/4.0/exp_block_num);//2048 1024 512 256 128 ---!!!---must be the power of 2---!!!---  删掉了“/exp_block_num”
 	// single_table_length = 8;
-	//single_table_length = 4194304/16;////in order to
-	single_capacity = single_table_length*0.9*4;//s=6 1920 s=12 960 s=24 480 s=48 240 s=96 120
+	single_table_length = 4194304;////in order to
+	single_capacity = single_table_length*0.8*4;//s=6 1920 s=12 960 s=24 480 s=48 240 s=96 120
 
 	false_positive = fp;
 	single_false_positive = 1-pow(1.0-false_positive, ((double)single_capacity/capacity));
@@ -42,7 +42,8 @@ EECuckooFilter::EECuckooFilter(const size_t item_num, const double fp, const siz
 		cout<<"fingerprint out of range!!!"<<endl;
 		fingerprint_size = 16;
 	}
-	
+
+
 	counter = 0;
 	counter_ISc = 0;
 	counterInsF = 0;

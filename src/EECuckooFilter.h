@@ -1,5 +1,5 @@
-#ifndef EECUCKOOFILTER_H_
-#define EECUCKOOFILTER_H_
+#ifndef DYNAMICCUCKOOFILTER_H_
+#define DYNAMICCUCKOOFILTER_H_
 
 
 #include"cuckoofilter.h"
@@ -93,4 +93,4 @@ public:
 
 
 
-#endif //EECUCKOOFILTER_H
+#endif //DYNAMICCUCKOOFILTER_H

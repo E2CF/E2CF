@@ -55,9 +55,10 @@ Metric test(EECuckooFilter *dcf, const Config config, string *data, string *data
 	//**********query**********
 	int false_positive_count = 0;
 	int querysuc=0;
+	//cout<<"????----?"<<endl;
 
-        metric.Q_time = clock();
-	for(int i = 0;i < config.item_num; i++){
+    metric.Q_time = clock();
+	for(int i = 0;i < 100; i++){
 		if(dcf->queryItem(data_Q[i].c_str()) == true){
 			querysuc++;
 		}
