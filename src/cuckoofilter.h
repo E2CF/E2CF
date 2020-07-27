@@ -7,7 +7,7 @@
 #include"bithack.h"
 #include"stdint.h"
 
-#define MaxNumKicks 30
+#define MaxNumKicks 40
 
 using namespace std;
 
