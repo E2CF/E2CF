@@ -42,8 +42,7 @@ EECuckooFilter::EECuckooFilter(const size_t item_num, const double fp, const siz
 		cout<<"fingerprint out of range!!!"<<endl;
 		fingerprint_size = 16;
 	}
-	single_table_length,single_capacity,fingerprint_size,single_false_positive,(double)single_capacity/capacity);
-
+	
 	counter = 0;
 	counter_ISc = 0;
 	counterInsF = 0;
