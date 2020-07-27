@@ -70,7 +70,7 @@ public:
 	bool transfer(CuckooFilter* tarCF);
 	bool insertImpl(const size_t index, const uint32_t fingerprint, size_t Pow_level, const bool kickout, Victim &victim);
 
-	//先不带插入操作，只配合一次性分裂完所有cf的情况使用。
+	//
 
 	uint64_t* moveodd_self_naive(int versionID,int iBucket,uint64_t* aBucket);
 	uint64_t* moveodd_addItem(int versionID,int iBucket, uint64_t* aBucket,uint32_t fingerprint);
