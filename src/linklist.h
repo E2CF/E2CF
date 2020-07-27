@@ -1,8 +1,8 @@
 /*
  * linklist.h
  *
- *  Created on: Jan 4, 2017
- *      Author: liaoliangyi
+ *  Created on: 
+ *      Author: 
  */
 
 #ifndef LINKLIST_H_
